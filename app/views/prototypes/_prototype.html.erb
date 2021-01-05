@@ -1,0 +1,14 @@
+<div class="card">
+  <%#= link_to image_tag("プロトタイプの画像", class: :card__img ), root_path%>
+  <%= link_to image_tag(prototype.image.variant(resize: '400x400'), class: :card__img), prototype_path(prototype.id) if prototype.image.attached? %>
+  <div class="card__body">
+    <%#= link_to "プロトタイプのタイトル", root_path, class: :card__title%>
+    <%#= link_to '詳細', tweet_path(tweet.id), method: :get %>
+    <%= link_to prototype.title, prototype_path(prototype.id), class: :card__title%>
+    <p class="card__summary">
+      <%#= "プロトタイプのキャッチコピー" %>
+      <%= prototype.catch_copy %>
+    </p>
+    <%= link_to "by #{prototype.user.name}", "/users/#{prototype.id}", class: :card__user %>
+  </div>
+</div>
