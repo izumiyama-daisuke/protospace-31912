@@ -16,15 +16,14 @@ class PrototypesController < ApplicationController
     if @prototype.save
       redirect_to root_path
     else
-      #@messages = @room.messages.includes(:user)
       render  new_prototype_path
     end
   end
 
   def show
-    #@comment = Comment.create
     @comment = Comment.new
     @comments = @prototype.comments.includes(:user)
+ 
   end
 
   def destroy
@@ -63,4 +62,3 @@ class PrototypesController < ApplicationController
   end
 
 end
-

@@ -39,8 +39,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
 
       t.timestamps null: false
     end
-
-    add_index :users, :email,                unique: true
+    #VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+    add_index :users, :email,                unique: true#, format: { with: VALID_EMAIL_REGEX }
     add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
